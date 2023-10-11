@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.example.fragmentnavigationboxesgame.databinding.FragmentOptionsBinding
 
@@ -105,14 +106,7 @@ class FragmentOptions: Fragment(), HasCustomTitle, HasCustomAction {
         @JvmStatic private val ARG_OPTIONS = "ARG_OPTIONS"
         @JvmStatic private val KEY_OPTIONS = "KEY_OPTIONS"
 
-        @JvmStatic
-        fun newInstance(options: Options): FragmentOptions {
-            val args = Bundle()
-            args.putParcelable(ARG_OPTIONS, options)
-            val fragment = FragmentOptions()
-            fragment.arguments = args
-            return fragment
-        }
+        fun createArgs(options: Options) = bundleOf(ARG_OPTIONS to options)
     }
 
     class BoxCountItem(

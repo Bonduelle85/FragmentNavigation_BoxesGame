@@ -48,7 +48,7 @@ class FragmentMenu: Fragment() {
     }
 
     private fun onExitPressed() {
-        navigator().goBack()
+        requireActivity().finish()
     }
 
     companion object {
